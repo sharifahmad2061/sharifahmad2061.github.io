@@ -1,0 +1,11 @@
+$(function(){
+    $('select').material_select();
+    $('#form_sup').on('click',function(){
+        $('#card0').hide(1000);
+        $('#card1').show(1000);
+    });
+    $('#form_sin').on('click',function(){
+        $('#card1').hide(1000);
+        $('#card0').show(1000);
+    });
+});

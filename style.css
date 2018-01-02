@@ -1,0 +1,27 @@
+.my_edge_fab {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+}
+
+.my_xl {
+    width: 100px;
+    height: 100px;
+}
+
+.input-field input:focus+label {
+    color: black !important;
+}
+
+.row .input-field input:focus {
+    border-bottom: 1px solid black !important;
+    box-shadow: 0 1px 0 0 black !important
+}
+
+.row #card0 .input-field i.active {
+    color: black !important;
+}
+
+.row #card1 .input-field i.active {
+    color: white !important;
+}
