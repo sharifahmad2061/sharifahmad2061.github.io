@@ -21,22 +21,22 @@
         </a>
         <div class="card-content">
           <span class="card-title">sign in</span>
-          <form class="card-content">
+          <form id="form_sin" class="card-content" action="sin.up" method="post"> <!-- form -->
             <div class="input-field tooltipped" data-position="top" data-delay="50" data-tooltip="Registration Number">
               <i class="fa fa-user prefix"></i>
-              <label for="reg_sin">UIDN</label>
-              <input id="reg_sin" type="number" name="reg_sin">
+              <input id="reg_sin" type="number" name="reg_sin" class="validate" min="000000" max="999999">
+              <label for="reg_sin" data-error="error">UIDN</label>
             </div>
             <div class="input-field">
               <i class="fa fa-key prefix"></i>
+              <input id="pass_sin" type="text" name="pass_sin" class="validate">
               <label for="pass_sin">Password</label>
-              <input id="pass_sin" type="text" name="pass_sin">
             </div>
           </form>
           <div class="card-action">
-            <a class="btn btn-large waves-effect waves-light black">GO
+            <button id="button_sin" class="btn btn-large waves-effect waves-light black">GO
               <i class="fa fa-send right"></i>
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -48,26 +48,26 @@
         </a>
         <div class="card-content">
           <span class="card-title">sign up</span>
-          <form class="card-content">
+          <form id="form_sup" class="card-content" action="sup.php" method="post">  <!-- form -->
             <div class="input-field">
               <i class="fa fa-address-book prefix"></i>
+              <input id="fname_sup" type="text" name="fname_sup" class="validate">
               <label for="fname_sup">First Name</label>
-              <input id="fname_sup" type="text" name="fname_sup">
             </div>
             <div class="input-field">
               <i class="fa fa-address-book prefix"></i>
+              <input id="lname_sup" type="text" name="lname_sup" class="validate">
               <label for="lname_sup">Last Name</label>
-              <input id="lname_sup" type="text" name="lname_sup">
             </div>
             <div class="input-field tooltipped" data-position="top" data-delay="50" data-tooltip="Registration Number">
               <i class="fa fa-user prefix"></i>
-              <label for="reg_sup">UIDN</label>
-              <input id="reg_sup" type="number" name="reg_sup">
+              <input id="reg_sup" type="number" name="reg_sup" class="validate" min="000000" max="999999">
+              <label for="reg_sup" data-error="format: 139743">UIDN</label>
             </div>
             <div class="input-field">
               <i class="fa fa-envelope prefix"></i>
-              <label for="email_sup">Email</label>
-              <input id="email_sup" type="email" name="email_sup">
+              <input id="email_sup" type="email" name="email_sup" class="validate">
+              <label for="email_sup" data-error="format: xyz.seecs.edu.pk" data-success="correct">Email</label>
             </div>
             <div class="input-field">
               <i class="fa fa-caret-square-o-down prefix"></i>
@@ -80,18 +80,18 @@
             </div>
             <div class="input-field">
               <i class="fa fa-map-marker prefix"></i>
-              <label for="section_sup">Section</label>
-              <input id="section_sup" type="text" name="section_sup">
+              <input id="section_sup" type="text" name="section_sup" class="validate">
+              <label for="section_sup" data-error="section should be like" data-success="correct">Section</label>
             </div>
             <div class="input-field">
               <i class="fa fa-key prefix"></i>
+              <input id="pass_sup" type="text" name="pass_sup" class="validate">
               <label for="pass_sup">Password</label>
-              <input id="pass_sup" type="text" name="pass_sup">
             </div>
           </form>
         </div>
         <div class="card-action">
-          <button class="btn btn-large white black-text waves-effect waves-light">GO
+          <button id="button_sup" class="btn btn-large white black-text waves-effect waves-light">GO
             <i class="fa fa-send right "></i>
           </button>
         </div>

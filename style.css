@@ -1,3 +1,11 @@
+/*removing spiners from number input field*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/*main styles*/
 .my_edge_fab {
     position: absolute;
     top: 10px;
@@ -9,8 +17,12 @@
     height: 100px;
 }
 
-.input-field input:focus+label {
+#card0 .input-field input:focus+label {
     color: black !important;
+}
+
+#card1 .input-field input:focus+label {
+    color: white !important;
 }
 
 .row #card0 .input-field input:focus {
