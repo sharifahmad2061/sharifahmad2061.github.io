@@ -13,9 +13,14 @@
     color: black !important;
 }
 
-.row .input-field input:focus {
+.row #card0 .input-field input:focus {
     border-bottom: 1px solid black !important;
     box-shadow: 0 1px 0 0 black !important
+}
+
+.row #card1 .input-field input:focus {
+    border-bottom: 1px solid white !important;
+    box-shadow: 0 1px 0 0 white !important
 }
 
 .row #card0 .input-field i.active {
