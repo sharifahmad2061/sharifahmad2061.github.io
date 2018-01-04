@@ -54,12 +54,13 @@
 		$_SESSION['ROLE'] = "teacher";
 		$_SESSION['EMAIL'] = $row2['email'];
 		$_SESSION['UIDN'] = $row2['UIDN'];
-		
+		$returnJson['role'] = 'teacher';
 	}else{
 		$_SESSION['UCLIN'] = $row1['fname'];
 		$_SESSION['ROLE'] = "student";
 		$_SESSION['EMAIL'] = $row1['email'];
 		$_SESSION['UIDN'] = $row1['UIDN'];
+		$returnJson['role'] = 'student';
 	}
 
 

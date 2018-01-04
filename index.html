@@ -72,12 +72,12 @@
             </div>
             <div class="input-field">
               <i class="fa fa-envelope prefix"></i>
-              <input id="email_sup" type="email" name="email" class="validate">
+              <input id="email_sup" type="email" name="email" class="validate" pattern=".+@seecs.edu.pk">
               <label for="email_sup" data-error="format: xyz.seecs.edu.pk">Email</label>
             </div>
             <div class="input-field">
               <i class="fa fa-caret-square-o-down prefix"></i>
-              <select name="role">
+              <select name="role" id="role_sup">
                 <option disabled selected>Choose Your Option</option>
                 <option value="student">student</option>
                 <option value="teacher">Teacher</option>

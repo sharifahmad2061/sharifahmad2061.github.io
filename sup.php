@@ -7,6 +7,9 @@
 		return;
 	}
 
+	//return data
+	$returnData = arrray();
+
 	//received information
 	$uidn = $_POST['uidn'];
 	$fname = $_POST['fname'];
@@ -15,8 +18,6 @@
 	$role = $_POST['role'];
 	$pass = $_POST['psd'];
 	$adv = $_POST['advisor_id'];
-
-	// var_dump($uidn, $fname, $lname, $email, $role, $pass);
 
 	//database connection
 	$dbhost = "localhost";
