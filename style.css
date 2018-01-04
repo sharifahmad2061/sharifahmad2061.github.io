@@ -5,6 +5,11 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; 
 }
 
+/*google button color*/
+#button_google_sin{
+    background-color: #F44336 !important;
+}
+
 /*main styles*/
 .my_edge_fab {
     position: absolute;

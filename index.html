@@ -16,20 +16,20 @@
       <!-- start of row -->
       <div class="card col s12 m10 offset-m1 l8 offset-l2" id="card0">
         <!-- start of card -->
-        <a id="form_sup" class="btn-floating waves-effect waves-light black my_edge_fab my_xl">
+        <a id="form_sup_fab" class="btn-floating waves-effect waves-light black my_edge_fab my_xl">
           <i class="fa fa-pencil" style="line-height: 100px; font-size:5rem;"></i>
         </a>
         <div class="card-content">
-          <span class="card-title">sign in</span>
+          <span class="card-title">SIGN IN</span>
           <form id="form_sin" class="card-content" action="sin.up" method="post"> <!-- form -->
             <div class="input-field tooltipped" data-position="top" data-delay="50" data-tooltip="Registration Number">
               <i class="fa fa-user prefix"></i>
-              <input id="reg_sin" type="number" name="reg_sin" class="validate" min="000000" max="999999">
+              <input id="reg_sin" type="number" name="uidn" class="validate" min="000000" max="999999">
               <label for="reg_sin" data-error="error">UIDN</label>
             </div>
             <div class="input-field">
               <i class="fa fa-key prefix"></i>
-              <input id="pass_sin" type="text" name="pass_sin" class="validate">
+              <input id="pass_sin" type="text" name="psd" class="validate">
               <label for="pass_sin">Password</label>
             </div>
           </form>
@@ -37,41 +37,47 @@
             <button id="button_sin" class="btn btn-large waves-effect waves-light black">GO
               <i class="fa fa-send right"></i>
             </button>
+            <button id="button_facebook_sin" class="btn btn-large blue">Facebook
+              <i class="fa fa-facebook right"></i>
+            </button>
+            <button id="button_google_sin" class="btn btn-large">Google
+              <i class="fa fa-google right"></i>
+            </button>
           </div>
         </div>
       </div>
       <!-- end of card -->
       <!-- start of card -->
       <div class="card col s12 m10 offset-m1 l8 offset-l2 black white-text" id="card1" style="display:none;">
-        <a id="form_sin" class="btn-floating white waves-effect waves-light my_edge_fab my_xl">
+        <a id="form_sin_fab" class="btn-floating white my_edge_fab my_xl">
           <i class="fa fa-times black-text" style="line-height: 100px; font-size:5rem;"></i>
         </a>
         <div class="card-content">
-          <span class="card-title">sign up</span>
+          <span class="card-title">SIGN UP</span>
           <form id="form_sup" class="card-content" action="sup.php" method="post">  <!-- form -->
             <div class="input-field">
               <i class="fa fa-address-book prefix"></i>
-              <input id="fname_sup" type="text" name="fname_sup" class="validate">
+              <input id="fname_sup" type="text" name="fname" class="validate">
               <label for="fname_sup">First Name</label>
             </div>
             <div class="input-field">
               <i class="fa fa-address-book prefix"></i>
-              <input id="lname_sup" type="text" name="lname_sup" class="validate">
+              <input id="lname_sup" type="text" name="lname" class="validate">
               <label for="lname_sup">Last Name</label>
             </div>
             <div class="input-field tooltipped" data-position="top" data-delay="50" data-tooltip="Registration Number">
               <i class="fa fa-user prefix"></i>
-              <input id="reg_sup" type="number" name="reg_sup" class="validate" min="000000" max="999999">
+              <input id="reg_sup" type="number" name="uidn" class="validate" min="000000" max="999999">
               <label for="reg_sup" data-error="format: 139743">UIDN</label>
             </div>
             <div class="input-field">
               <i class="fa fa-envelope prefix"></i>
-              <input id="email_sup" type="email" name="email_sup" class="validate">
-              <label for="email_sup" data-error="format: xyz.seecs.edu.pk" data-success="correct">Email</label>
+              <input id="email_sup" type="email" name="email" class="validate">
+              <label for="email_sup" data-error="format: xyz.seecs.edu.pk">Email</label>
             </div>
             <div class="input-field">
               <i class="fa fa-caret-square-o-down prefix"></i>
-              <select name="role_sup">
+              <select name="role">
                 <option disabled selected>Choose Your Option</option>
                 <option value="student">student</option>
                 <option value="teacher">Teacher</option>
@@ -80,12 +86,12 @@
             </div>
             <div class="input-field">
               <i class="fa fa-map-marker prefix"></i>
-              <input id="section_sup" type="text" name="section_sup" class="validate">
-              <label for="section_sup" data-error="section should be like" data-success="correct">Section</label>
+              <input id="section_sup" type="text" name="section" class="validate">
+              <label for="section_sup">Section</label>
             </div>
             <div class="input-field">
               <i class="fa fa-key prefix"></i>
-              <input id="pass_sup" type="text" name="pass_sup" class="validate">
+              <input id="pass_sup" type="password" name="pass" class="validate">
               <label for="pass_sup">Password</label>
             </div>
           </form>
