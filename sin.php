@@ -50,12 +50,14 @@
 	$row2 = mysqli_fetch_assoc($result2);
 
 	if (empty($row1)) {
+		// $returnJson['sess'] = 'teacher';
 		$_SESSION['UCLIN'] = $row2['fname'];
 		$_SESSION['ROLE'] = "teacher";
 		$_SESSION['EMAIL'] = $row2['email'];
 		$_SESSION['UIDN'] = $row2['UIDN'];
 		$returnJson['role'] = 'teacher';
 	}else{
+		// $returnJson['sess'] = 'student';
 		$_SESSION['UCLIN'] = $row1['fname'];
 		$_SESSION['ROLE'] = "student";
 		$_SESSION['EMAIL'] = $row1['email'];
