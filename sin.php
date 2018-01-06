@@ -40,6 +40,7 @@
 
 	if (empty($row1)) {
 		// $returnJson['sess'] = 'teacher';
+		echo "setting sessions variables for teacher";
 		$_SESSION['UCLIN'] = $row2['fname'];
 		$_SESSION['ROLE'] = "teacher";
 		$_SESSION['EMAIL'] = $row2['email'];
@@ -47,18 +48,20 @@
 		$returnJson['role'] = 'teacher';
 	}else{
 		// $returnJson['sess'] = 'student';
+		echo "setting session variables for student";
 		$_SESSION['UCLIN'] = $row1['fname'];
 		$_SESSION['ROLE'] = "student";
 		$_SESSION['EMAIL'] = $row1['email'];
 		$_SESSION['UIDN'] = $row1['UIDN'];
 		$returnJson['role'] = 'student';
+		$returnJson['UIDN'] = $_SESSION['UIDN'];
 	}
 
 
 	mysqli_free_result($result1);
 	mysqli_free_result($result2);
 	mysqli_close($connection);
-
+	print_r($_SESSION);
 	echo json_encode($returnJson);
 	// header("location: ./student.php");
 ?>

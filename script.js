@@ -12,7 +12,7 @@ $(function() {
     // for student role showing all advisors
     $('#role_sup select').on('change', function() {
         if ($(this).val() == 'student') {
-            console.log("student branch fired");
+            // console.log("student branch fired");
             // console.log("else part fired for role select");
             if (document.querySelector("#advisors")) {
                 console.log("advisors select exist hence we not inserting new things");
@@ -115,7 +115,7 @@ $(function() {
         // const lname = $('#lname_sup').val();
         // const reg = $('#reg_sup').val();
         // const lname = $('#lname_sup').val();
-        console.log("I'm fired");
+        // console.log("I'm fired");
         var form_sup = $("#form_sup")[0];
         if (!form_sup.checkValidity()) {
             if (form_sup.reportValidity) {

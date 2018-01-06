@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    print_r($_SESSION);
 
     if($_SERVER['REQUEST_METHOD'] != 'POST'){
         echo "the page does not work for \"GET\" requests.";
