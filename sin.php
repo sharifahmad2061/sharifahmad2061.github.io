@@ -15,18 +15,7 @@
 	$reg = $_POST['uidn'];
 	$pass = $_POST['psd'];
 
-	//database connection
-	$dbhost = "localhost";
-	$dbuser = "sharif";
-	$dbpass = "sharifahmad123";
-	$dbname = "web_proj";
-
-	// var_dump($reg, $pass);
-	$connection = mysqli_connect($dbhost,$dbuser,$dbpass, $dbname);
-
-	if(mysqli_connect_errno()){
-		die("db connection failed: ".mysqli_connect_error(). " (" . mysqli_connect_errno(). " )");
-	}
+	include_once('./db_connection.php');
 
 	$query = "SELECT * FROM sign_in WHERE uidn={$reg} AND password='{$pass}';";
 	$result = mysqli_query($connection, $query);

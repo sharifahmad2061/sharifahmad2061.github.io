@@ -8,7 +8,7 @@
 	}
 
 	//return data
-	$returnData = arrray();
+	$returnData = array();
 
 	//received information
 	$uidn = $_POST['uidn'];
@@ -17,49 +17,46 @@
 	$email = $_POST['email'];
 	$role = $_POST['role'];
 	$pass = $_POST['psd'];
-	$adv = $_POST['advisor_id'];
-
-	//database connection
-	$dbhost = "localhost";
-	$dbuser = "sharif";
-	$dbpass = "sharifahmad123";
-	$dbname = "web_proj";
-
-	$connection = mysqli_connect($dbhost,$dbuser,$dbpass, $dbname);
-
-	if(mysqli_connect_errno()){
-		die("db connection failed: ".mysqli_connect_error(). " (" . mysqli_connect_errno(). " )");
+	if($role == 'student'){
+		$adv = $_POST['advisor_id'];
+		$section = $_POST['section'];
 	}
 
+	include_once('./db_connection.php');
+
 	if ($role == "student") {
-		$query = "INSERT INTO student(UIDN,fname,lname,email,advisor_id) VALUES({$uidn},'{$fname}','{$lname}','{$email}','{$adv}')";
+		$query = "INSERT INTO student(UIDN,fname,lname,email,advisor_id,section) VALUES({$uidn},'{$fname}','{$lname}','{$email}','{$adv}', '{$section}')";
 		$result = mysqli_query($connection,$query);
-		if(!$result){echo "student query failed ".mysqli_error($connection)."\n";}
+		if(!$result){echo "student query failed ".mysqli_error($connection)."\n";return;}
 
 		$query = "INSERT INTO sign_in (UIDN,password) VALUES({$uidn},'{$pass}')";
 		$result = mysqli_query($connection,$query);
-		if(!$result){echo "sign in query failed".mysqli_error($connection)."\n";}
+		if(!$result){echo "sign in query failed".mysqli_error($connection)."\n";return;}
 		
 		$query = "INSERT INTO user_status (u_id,status) VALUES({$uidn},'online')";
 		$result = mysqli_query($connection,$query);
-		if(!$result){echo "user status query failed".mysqli_error($connection)."\n";}
+		if(!$result){echo "user status query failed".mysqli_error($connection)."\n";return;}
 		
-		echo "data written to the student database";
-	
+		// echo "data written to the student database";
+		$returnData['success'] = 'true';
+		$returnData['role'] = 'student';
+		
 	} else {
 		$query = "INSERT INTO teacher (UIDN,fname,lname,email) VALUES({$uidn},'{$fname}','{$lname}','{$email}')";
 		$result = mysqli_query($connection,$query);
-		if(!$result){echo "teacher query failed".mysqli_error($connection)."\n";}
+		if(!$result){echo "teacher query failed".mysqli_error($connection)."\n";return;}
 
 		$query = "INSERT INTO sign_in (UIDN,password) VALUES({$uidn},'{$pass}')";
 		$result = mysqli_query($connection,$query);
-		if(!$result){echo "sign in query failed".mysqli_error($connection)."\n";}
+		if(!$result){echo "sign in query failed".mysqli_error($connection)."\n";return;}
 
 		$query = "INSERT INTO user_status (u_id,status) VALUES({$uidn},'online')";
 		$result = mysqli_query($connection,$query);
-		if(!$result){echo "user status query failed".mysqli_error($connection)."\n";}
+		if(!$result){echo "user status query failed".mysqli_error($connection)."\n";return;}
 
-		echo "data written to the teacher database";
+		$returnData['success'] = 'true';
+		$returnData['role'] = 'teacher';
+		// echo "data written to the teacher database";
 	}
 	
 
@@ -67,6 +64,8 @@
 	$_SESSION['ROLE'] = $role;
 	$_SESSION['EMAIL'] = $email;
 	$_SESSION['UIDN'] = $uidn;
+
+	echo json_encode($returnData);
 
 	mysqli_close($connection);
 ?>

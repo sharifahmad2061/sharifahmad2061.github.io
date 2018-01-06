@@ -8,13 +8,7 @@
 		return;
 	}
 
-	//database connection
-	$dbhost = "localhost";
-	$dbuser = "sharif";
-	$dbpass = "sharifahmad123";
-	$dbname = "web_proj";
-
-	$connection = mysqli_connect($dbhost,$dbuser,$dbpass, $dbname);
+	include_once('./db_connection.php');
 
 
 	$query = "UPDATE user_status SET status='offline' WHERE u_id={$_SESSION["UIDN"]};";

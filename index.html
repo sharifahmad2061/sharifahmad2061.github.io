@@ -25,11 +25,11 @@
             <div class="input-field tooltipped" data-position="top" data-delay="50" data-tooltip="Registration Number">
               <i class="fa fa-user prefix"></i>
               <input id="reg_sin" type="number" name="uidn" class="validate" min="000000" max="999999">
-              <label for="reg_sin" data-error="error">UIDN</label>
+              <label for="reg_sin" data-error="format: 139743">UIDN</label>
             </div>
             <div class="input-field">
               <i class="fa fa-key prefix"></i>
-              <input id="pass_sin" type="text" name="psd" class="validate">
+              <input id="pass_sin" type="password" name="psd" class="validate">
               <label for="pass_sin">Password</label>
             </div>
           </form>
@@ -57,13 +57,13 @@
           <form id="form_sup" class="card-content" action="sup.php" method="post">  <!-- form -->
             <div class="input-field">
               <i class="fa fa-address-book prefix"></i>
-              <input id="fname_sup" type="text" name="fname" class="validate">
-              <label for="fname_sup">First Name</label>
+              <input id="fname_sup" type="text" name="fname" class="validate" pattern="[a-zA-Z]+">
+              <label for="fname_sup" data-error="name can only contain english letters">First Name</label>
             </div>
             <div class="input-field">
               <i class="fa fa-address-book prefix"></i>
-              <input id="lname_sup" type="text" name="lname" class="validate">
-              <label for="lname_sup">Last Name</label>
+              <input id="lname_sup" type="text" name="lname" class="validate" pattern="[a-zA-Z]+">
+              <label for="lname_sup" data-error="name can only contain english letters">Last Name</label>
             </div>
             <div class="input-field tooltipped" data-position="top" data-delay="50" data-tooltip="Registration Number">
               <i class="fa fa-user prefix"></i>
@@ -85,13 +85,8 @@
               <label>Role</label>
             </div>
             <div class="input-field">
-              <i class="fa fa-map-marker prefix"></i>
-              <input id="section_sup" type="text" name="section" class="validate">
-              <label for="section_sup">Section</label>
-            </div>
-            <div class="input-field">
               <i class="fa fa-key prefix"></i>
-              <input id="pass_sup" type="password" name="pass" class="validate">
+              <input id="pass_sup" type="password" name="psd" class="validate">
               <label for="pass_sup">Password</label>
             </div>
           </form>

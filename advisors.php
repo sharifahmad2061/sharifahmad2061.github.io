@@ -1,21 +1,13 @@
 <?php
 
-    // if($_SERVER['REQUEST_METHOD'] != 'POST'){
-    //     echo "the page does not work for \"GET\" requests.";
-    //     return;
-    // }
-
-	//database connection
-	$dbhost = "localhost";
-	$dbuser = "sharif";
-	$dbpass = "sharifahmad123";
-	$dbname = "web_proj";
-
-	$connection = mysqli_connect($dbhost,$dbuser,$dbpass, $dbname);
-
-	if(mysqli_connect_errno()){
-		die("db connection failed: ".mysqli_connect_error(). " (" . mysqli_connect_errno(). " )");
+    if($_SERVER['REQUEST_METHOD'] != 'POST'){
+        echo "the page does not work for \"GET\" requests.";
+        return;
     }
+
+    include_once "db_connection.php";
+
+    $returnJson = array();
     
     $query = "SELECT UIDN,CONCAT(fname,' ',lname) AS FULLNAME FROM teacher";
 
@@ -25,6 +17,10 @@
         die("mysql query error");
     }
 
-    echo json_encode(mysqli_fetch_assoc($adv));
+    while($res = mysqli_fetch_assoc($adv)){
+        $returnJson[$res['UIDN']] = $res['FULLNAME'];
+    }
+
+    echo json_encode($returnJson);
 
 ?>
