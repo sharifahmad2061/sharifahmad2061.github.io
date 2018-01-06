@@ -1,10 +1,7 @@
 <?php
-    session_start();
-    print_r($_SESSION);
 
     if($_SERVER['REQUEST_METHOD'] != 'POST'){
-        echo "the page does not work for \"GET\" requests.";
-        return;
+        die("the page does not work for \"GET\" requests.");
     }
 
     include_once "db_connection.php";
@@ -25,4 +22,6 @@
 
     echo json_encode($returnJson);
 
+    mysqli_free_result($adv);
+    mysqli_close($connection);
 ?>

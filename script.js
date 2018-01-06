@@ -1,6 +1,6 @@
 $(function() {
     $('select').material_select();
-    
+
     $('#form_sup_fab').on('click', function() {
         $('#card0').fadeTo(0, 0).hide(800);
         $('#card1').css("opacity", 1).show(800);
@@ -60,7 +60,7 @@ $(function() {
                 $('#advisors select').material_select('destroy');
                 $('#advisors').remove();
                 $('#section').remove();
-            }else{
+            } else {
                 console.log("no advisors exist");
             }
         } //end of else
@@ -111,22 +111,8 @@ $(function() {
         });
     });
 
-    //sign up button
-    $('#button_sup').on('click', function() {
-        // const fname = $('#fname_sup').val();
-        // const lname = $('#lname_sup').val();
-        // const reg = $('#reg_sup').val();
-        // const lname = $('#lname_sup').val();
-        // console.log("I'm fired");
-        var form_sup = $("#form_sup")[0];
-        if (!form_sup.checkValidity()) {
-            if (form_sup.reportValidity) {
-                form_sup.reportValidity();
-                return;
-            } else {
-                console.log('not working here');
-            }
-        }
+    //external functions
+    function persist() {
         $.post({
             processData: false,
             dataType: 'json',
@@ -158,6 +144,46 @@ $(function() {
                 console.log(data);
             }
         });
+    }
+
+    //sign up button
+    $('#button_sup').on('click', function() {
+        // console.log("I'm fired");
+
+        //verifying that all fields have values
+        var form_sup = $("#form_sup")[0];
+        if (!form_sup.checkValidity()) {
+            if (form_sup.reportValidity) {
+                form_sup.reportValidity();
+                return;
+            } else {
+                console.log('not working here');
+            }
+        }
+
+        //post request for verification of duplicate usernames
+        console.log("we have not returned");
+        // var verify = false;
+        $.post({
+            processData: false,
+            dataType: 'json',
+            url: 'verify_username.php',
+            success: function(data) {
+                const ver = $('#form_sup #reg_sup').val();
+                if (data.indexOf(ver) != -1) {
+                    console.log("found something");
+                    Materialize.toast("UIDN already exist", 3000);
+                    // verify = true;
+                }
+                else{
+                    persist();
+                }
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+
     }); //end of button_sup functionality
 
 }); //end of document ready function
