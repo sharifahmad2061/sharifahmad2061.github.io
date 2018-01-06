@@ -7,7 +7,7 @@
 	
 	if(isset($_SESSION['UIDN'])){
 		// echo "I've reached here";
-		$query = "UPDATE user_status SET status='hello' WHERE u_id={$_SESSION['UIDN']};";
+		$query = "UPDATE user_status SET status='offline' WHERE u_id={$_SESSION['UIDN']};";
 		$result = mysqli_query($connection, $query);
 		if ($result) {
 			$_SESSION = array();

@@ -1,9 +1,11 @@
 $(function() {
     $('select').material_select();
+    
     $('#form_sup_fab').on('click', function() {
         $('#card0').fadeTo(0, 0).hide(800);
         $('#card1').css("opacity", 1).show(800);
     });
+
     $('#form_sin_fab').on('click', function() {
         $('#card1').fadeTo(0, 0).hide(800);
         $('#card0').css("opacity", 1).show(800);
