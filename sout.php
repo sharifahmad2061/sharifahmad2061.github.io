@@ -11,7 +11,7 @@
 		$result = mysqli_query($connection, $query);
 		if ($result) {
 			$_SESSION = array();
-			echo "user logged out";
+			header("Location: http://localhost:8090/index.html");
 		}
 		else{
 			echo "you haven't been logged out";

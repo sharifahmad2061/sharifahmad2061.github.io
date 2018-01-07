@@ -1,18 +1,18 @@
-$(function() {
+$(function () {
     $('select').material_select();
 
-    $('#form_sup_fab').on('click', function() {
+    $('#form_sup_fab').on('click', function () {
         $('#card0').fadeTo(0, 0).hide(800);
         $('#card1').css("opacity", 1).show(800);
     });
 
-    $('#form_sin_fab').on('click', function() {
+    $('#form_sin_fab').on('click', function () {
         $('#card1').fadeTo(0, 0).hide(800);
         $('#card0').css("opacity", 1).show(800);
     });
 
     // for student role showing all advisors
-    $('#role_sup select').on('change', function() {
+    $('#role_sup select').on('change', function () {
         if ($(this).val() == 'student') {
             // console.log("student branch fired");
             // console.log("else part fired for role select");
@@ -24,14 +24,14 @@ $(function() {
                 processData: false,
                 url: 'advisors.php',
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     // console.log(data);
                     var adv = $('<div class="input-field" id="advisors"></div>');
                     var sel = $('<select name="advisor_id"></select>');
                     adv.append('<i class="fa fa-graduation-cap prefix"></i>');
                     // console.log(Object.keys(data).length);
                     sel.append('<option disabled selected>Choose Your Advisor</option>');
-                    $.each(data, function(key, value) {
+                    $.each(data, function (key, value) {
                         // console.log(key, value);
                         sel.append(`<option value='${key}'>${value}</option>`);
                     });
@@ -47,7 +47,7 @@ $(function() {
                     $('#advisors').after(el);
                     // console.log(adv);
                 },
-                error: function(data) {
+                error: function (data) {
                     console.log("error occured on post request in sign up");
                     console.log(data);
                 }
@@ -67,7 +67,7 @@ $(function() {
     });
 
     //sign in button
-    $('#button_sin').on('click', function() {
+    $('#button_sin').on('click', function () {
         // console.log("ëvent triggered");
         console.log("I'm fired");
         var form_sin = $("#form_sin")[0];
@@ -84,17 +84,17 @@ $(function() {
             dataType: 'json',
             data: $('#form_sin').serialize(),
             url: 'sin.php',
-            success: function(data) {
+            success: function (data) {
                 // console.log(data);
                 if (data.success == 'true') {
                     console.log(data);
                     Materialize.toast("you've been logged in", 4000);
                     if (data.role == 'teacher') {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             window.location.replace("./teacher.html");
                         }, 4500);
                     } else {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             window.location.replace("./menu2.html");
                         }, 4500);
                     }
@@ -104,7 +104,7 @@ $(function() {
                     $('#form_sin')[0].reset();
                 }
             },
-            error: function(data) {
+            error: function (data) {
                 console.log("error occured in post request for sign in");
                 console.log(data);
             }
@@ -118,18 +118,18 @@ $(function() {
             dataType: 'json',
             data: $('#form_sup').serialize(),
             url: 'sup.php',
-            success: function(data) {
+            success: function (data) {
                 // console.log(data);
                 if (data.success == 'true') {
                     // console.log(data);
                     Materialize.toast("you are up for the task", 2000);
                     if (data.role == 'teacher') {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             // console.log("hello");
                             window.location.replace("./teacher.html");
                         }, 2000);
                     } else {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             // console.log("hello");
                             window.location.replace("./menu2.html");
                         }, 2000);
@@ -139,7 +139,7 @@ $(function() {
                     $('#form_sup')[0].reset();
                 }
             },
-            error: function(data) {
+            error: function (data) {
                 console.log("button_sup failed");
                 console.log(data);
             }
@@ -147,7 +147,7 @@ $(function() {
     }
 
     //sign up button
-    $('#button_sup').on('click', function() {
+    $('#button_sup').on('click', function () {
         // console.log("I'm fired");
 
         //verifying that all fields have values
@@ -168,18 +168,17 @@ $(function() {
             processData: false,
             dataType: 'json',
             url: 'verify_username.php',
-            success: function(data) {
+            success: function (data) {
                 const ver = $('#form_sup #reg_sup').val();
                 if (data.indexOf(ver) != -1) {
                     console.log("found something");
                     Materialize.toast("UIDN already exist", 3000);
                     // verify = true;
-                }
-                else{
+                } else {
                     persist();
                 }
             },
-            error: function(data) {
+            error: function (data) {
                 console.log(data);
             }
         });
