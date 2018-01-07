@@ -42,7 +42,7 @@ $(function () {
 
                     var el = $('<div class="input-field" id="section"></div>');
                     el.append('<i class="fa fa-map-marker prefix"></i>');
-                    el.append('<input id="section_sup" type="text" name="section" class="validate" maxlength="7">');
+                    el.append('<input id="section_sup" type="text" name="section" class="validate" maxlength="10">');
                     el.append('<label for="section_sup">Section</label>');
                     $('#advisors').after(el);
                     // console.log(adv);

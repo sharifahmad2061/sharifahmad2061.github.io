@@ -65,6 +65,11 @@
 	$_SESSION['EMAIL'] = $email;
 	$_SESSION['UIDN'] = $uidn;
 
+	setcookie('UCLIN',$fname,time()+3600);
+	setcookie('ROLE',$role,time()+3600);
+	setcookie('EMAIL',$email,time()+3600);
+	setcookie('UIDN',$uidn,time()+3600);
+
 	echo json_encode($returnData);
 
 	mysqli_close($connection);
